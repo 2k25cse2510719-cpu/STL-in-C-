@@ -1,5 +1,5 @@
 // #include<iostream>
-// #include<array>//important to include if you want to use array an a container .
+// #include<array>//important to include if you want to use array as a container .
 // using namespace std ;
 // int main (){
 //     std::array<int,5> arr;//"arr" is a data member , because it contains data .
