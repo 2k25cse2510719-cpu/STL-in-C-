@@ -1,0 +1,7 @@
+vector is a container in c++ .
+It is dynamic , that means that it grows (basically multiplies when the limit is reached like 2,4,8,16)
+Syntax = #include<vector>
+std::vector<int>hi;
+std::vector<int> hi2 (5,12);//means create 5 boxes and fill 12 in them .
+std::vector<int> hi3={1,2,3,4,5};
+member function it supports are :- push_back(),pop_back(),emplace(),emplace_back(),resize(),swap(),erase(),clear().
