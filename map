@@ -1,0 +1,35 @@
+It is a Map , works like key and it's meaning .
+Like apple(key)->fruit(meaning)
+Syntax:
+map<string,int>age;
+map['Ishan']=20;
+map<key,meaning>age;
+Ishan is key ,20 is meaning.
+There are unordered_map too , mostly used in brute force approaches
+Travesal is a bit different 
+for(auto x: map){
+  cout<<x.first<<" ":
+  cout<<x.second<<endl;
+}
+using iterator 
+for(auto it=mp.begin();it!=mp.end();it++){
+  cout<<it->first<<" ";
+  cout<<it->second<<endl;
+}
+Automatically sorts data .
+Insertion 
+map<string,int>mp;
+mp.insert({20,Ishan});
+mp.insert({10,Harshill});
+freq['a']=3;
+inside computer it is stored as pair<const char,int>
+count()&find()
+so map<int,string> student;
+student[101] = "Ishan";
+student[102] = "Rahul";
+student[103] = "Aman";
+cout<<student.count(120);
+output=1;
+auto it = student.find(102);
+cout << it->first << endl;
+cout << it->second << endl;
