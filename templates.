@@ -1,0 +1,43 @@
+Learning things about templates in c ++;
+Templates are used to make generic code program for you that works with different data type .
+suppose 
+void print (int value){
+cout<<value<<endl;
+}
+void print(string value){
+cout<<value<<endl;
+}
+int main (){
+print(5);
+print(hi);
+}
+Now in the above program I have to write program for int & then for string ,
+likewise I will have to write if multiple times for multiple datatypes , but not with templates,
+here is how.
+#include<iostream>
+#include<templates>
+template<typename T>
+void print(t value){
+cout<<value<<endl;
+}
+int main (){
+print(5);// it will auto-fill the datatype for you to int .
+print(hi);it will auto-fill the datatype for you to char.
+}
+templates are evaluated at compile time , so we can make an array of unknown size using templates and then assign value later and will be evaluated 
+during compile time.
+example 
+#include<iostream>
+#include<templates>
+template<int T>
+class Array{
+private : 
+int m_Array[T];//no size mentioned , still work becasue-)
+public:                                                 | 
+int Get.Size() const ;{return T}}                       | 
+int main (){                                            | 
+Array<5>array;<-----------------------------------------)the size is evaluated at compile-time because it is a template.
+cout<<Get.Size()<<endl;// like this I do not need to make different array for different sizes , just pass different values.
+Array<12>brr;
+Array<13441>crr;// not need to make different function for different array size , just give name and different classses of Array will form .
+}
