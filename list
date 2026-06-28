@@ -1,0 +1,9 @@
+list is a doubly linked list 
+Syntax : 
+#include<list>
+std::list<int> numbers;
+Member function are :- push_front(),pop_back()
+Traversal is using loops 
+for(auto int i =list.begin();i!=list.end();i++){
+cout<<*i<<endl;
+}
