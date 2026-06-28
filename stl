@@ -1,0 +1,6 @@
+STl- Standard Template Library 
+It basically is a library having various templates like vectors<> & stack & etc.
+  It consists of 3 major parts
+(i)Container- It is used to store data .(Vector,Stack)
+(ii)Iterator-It is used to traverse because it act as a pointer as we can call a bookmark.
+(iii)Algorithm-It is in-built funtion that is used to perform actions on the data.
