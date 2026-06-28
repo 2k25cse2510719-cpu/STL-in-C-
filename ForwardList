@@ -2,7 +2,7 @@ list is a signle linked list
 Syntax : 
 #include<forward_list>
 std::forward_list<int> numbers;
-Member function are :- push_front()//no pop_back() in this.
+Member function are :- push_front()//no pop_back() in this, sort(),reverse(),merge(),after_begin(),etc;
 for(int i:Flist){
 cout<<i<<endl;
 }
