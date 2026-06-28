@@ -24,3 +24,8 @@
 //  cout<<p;
 // arr[4]=arr.operator[](4);
 // }
+// also we can initialize array elements later in this 
+// for example :-
+// st::array<int,5>myarray;
+// myarray={1,2,3,4,5,};
+// This was not possible in classic c type array.
