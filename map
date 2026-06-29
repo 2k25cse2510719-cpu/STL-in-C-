@@ -33,3 +33,4 @@ output=1;
 auto it = student.find(102);
 cout << it->first << endl;
 cout << it->second << endl;
+Uses binary search tree.
