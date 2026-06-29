@@ -1,0 +1,30 @@
+A multimap is same as map but helps to store more then one key for it's meaning .
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main() {
+    multimap<string, int> marks;
+
+    marks.insert({"Ishan", 90});
+    marks.insert({"Rahul", 85});
+    marks.insert({"Ishan", 95});
+    marks.insert({"Aman", 80});
+
+    for (auto p : marks) {
+        cout << p.first << " " << p.second << endl;
+    }
+}
+"Ishan" appears twice.
+Insertion looks like this :-
+multimap<int, string> mp;
+mp.insert({1, "Apple"});
+mp.insert({1, "Banana"});
+mp.insert({1, "Orange"});
+Output :-
+for(auto i:mp){
+cout<<i.first()<<" "<<i.second<<endl;
+}
+Top member functions are 
+.find(),equal_range(),count(),erase(),size().
