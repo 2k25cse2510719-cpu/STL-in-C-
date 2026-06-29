@@ -1,4 +1,4 @@
-It is a Map , works like key and it's meaning .
+A Map , works like key and it's meaning .
 Like apple(key)->fruit(meaning)
 Syntax:
 map<string,int>age;
