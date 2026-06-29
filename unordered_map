@@ -1,0 +1,243 @@
+It is a map , but does not store keys and values in order,
+It uses hashing to store data 
+Imagine a huge array
+
+Suppose C++ creates an array of 10 boxes.
+
+Index
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+These are called buckets.
+
+Initially
+
+0 -> empty
+1 -> empty
+2 -> empty
+...
+9 -> empty
+Now insert
+unordered_map<int,string> mp;
+
+mp[25] = "Apple";
+
+The computer asks:
+
+"Which bucket should key 25 go into?"
+
+It uses a hash function.
+
+For integers, imagine a simple hash function (the real one is more sophisticated):
+
+hash(key) = key % number_of_buckets
+
+Since there are 10 buckets
+
+25 % 10 = 5
+
+So
+
+Bucket 5
+
+25 -> Apple
+
+Now the table looks like
+
+0
+1
+2
+3
+4
+5 ---> (25, Apple)
+6
+7
+8
+9
+
+Notice that it didn't search through every element. It jumped directly to bucket 5.
+
+Insert another
+mp[13] = "Banana";
+13 % 10 = 3
+
+Now
+
+3 ---> (13, Banana)
+5 ---> (25, Apple)
+Another
+mp[44] = "Orange";
+44 % 10 = 4
+4 ---> (44, Orange)
+What if two keys get the same bucket?
+
+Suppose
+
+mp[35] = "Mango";
+35 % 10 = 5
+
+But bucket 5 already has
+
+25 -> Apple
+
+Now what?
+
+This is called a collision.
+
+Collision Handling
+
+Most C++ implementations use separate chaining.
+
+Bucket 5 becomes
+
+Bucket 5
+
+25 -> Apple
+35 -> Mango
+
+Internally it is something like
+
+5
+
+↓
+
+(25,Apple)
+      ↓
+(35,Mango)
+
+Each bucket stores a small linked list (or a similar node-based structure).
+
+Another collision
+mp[45] = "Pear";
+45 % 10 = 5
+
+Now
+
+Bucket 5
+
+25 Apple
+35 Mango
+45 Pear
+Searching
+
+Suppose
+
+mp.find(35);
+
+The computer does
+
+hash(35)
+
+↓
+
+35 % 10 = 5
+
+Immediately jumps to bucket 5
+
+25 Apple
+35 Mango
+45 Pear
+
+Looks only inside this bucket.
+
+Found!
+
+Notice it never checks buckets 0–4 or 6–9.
+
+That's why it's so fast.
+
+Why is it O(1)?
+
+Imagine
+
+1,000,000 elements
+
+A map has to walk a balanced tree, taking about
+
+log₂(1,000,000) ≈ 20
+
+comparisons.
+
+An unordered_map computes the hash and jumps directly to one bucket.
+
+If the hash function spreads keys well, each bucket contains only a few elements, so the search is effectively constant time.
+
+What if all keys collide?
+
+Imagine every key hashes to bucket 5.
+
+5
+
+↓
+
+1
+↓
+
+2
+↓
+
+3
+↓
+
+4
+↓
+
+5
+↓
+
+...
+
+Now searching becomes
+
+O(n)
+
+This is the worst case.
+
+Fortunately, the standard library uses high-quality hash functions and automatically resizes the table to make this unlikely.
+
+Rehashing
+
+Suppose you start with 10 buckets.
+
+After many insertions
+
+Bucket 5
+
+25
+35
+45
+55
+65
+75
+
+Too crowded!
+
+The unordered_map creates a larger table, for example with 20 buckets, and reinserts every element.
+
+Now
+
+25 % 20 = 5
+35 % 20 = 15
+45 % 20 = 5
+55 % 20 = 15
+
+The elements spread out:
+
+Bucket 5
+25
+45
+
+Bucket 15
+35
+55
+
+This process is called rehashing. It keeps operations fast by reducing collisions.
