@@ -1,0 +1,33 @@
+It stores values that are unique and in a sorted order.
+Syntax :
+set<int>s;
+Insertion :
+s.insert(12);
+Traversal :
+for(int i :s){
+cout<<i<<" ";
+}
+Searching :
+if(s.find(12)!=s.end()){
+cout<<"Found"<<endl;
+}
+vector
+↓
+Can contain duplicates
+Keeps insertion order
+
+set
+↓
+No duplicates
+Always sorted
+
+unordered_set
+↓
+No duplicates
+Fastest lookup
+No order
+
+multiset
+↓
+Duplicates allowed
+Always sorted
